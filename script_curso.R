@@ -82,6 +82,87 @@ is.character(falso)
 is.logical(falso)
 
 
+####################
+
+variable_integer  = -8
+variable_numeric = 3.14
+variable_character = "texto"
+
+print(variable_character)
+
+if (variable_integer < variable_numeric)
+{
+  print("si")
+}else if (variable_integer < variable_numeric)
+{
+  print("no")
+}else {
+  print("iguales")
+}
+
+print("iniciando ciclo while!")
+
+var_while = 0
+while (var_while <= 15)
+{
+  print(var_while)
+  var_while = var_while + 1
+}
+
+print("Iniciando ciclo for:")
+
+
+for (num_for in 0:19)
+{
+  print(num_for)
+}
+
+
+
+## funciones
+
+# creando un vector numérico para sacar el promedio
+x_x<-c(35,5,9,50)
+promedio<-mean(x_x)
+promedio
+
+abs(-7) #valor absoluto
+ceiling(5.3) #redondea hacia arriba
+floor(5.3) #redondea hacia abajo
+trunc(5.3) #devuelve la parte entera
+
+suma<-function(x,y)
+{
+  x+y
+}
+suma(5,7)
+
+# Vector: es un conjunto de datos del mismo tipo con un largo determinado
+# puede ser largo 1*
+# por lo que un dato también es un vector
+# los vectores tienen un tipo, un largo y atributos
+
+# para crear un vector usamos la funcion c() c(combinar)
+
+vector_1<-c(3,4,0, "Hola", NULL, TRUE, NA)
+is.vector(vector_1)
+length(vector_1)
+
+
+vector_2<-c(vector_1, 3,68)
+length(vector_2)
+
+
+vector_3<-c(vector_2, vector_1)
+vector_3
+
+vector_4<-c(3,5,9,50,88,136,257)
+sum(vector_4)
+mean(vector_4)
+median(vector_4)
+sd(vector_4)
+range(vector_4)
+
 # Array: Un array es un vector extendido a más de dos dimensiones
 # Se usan para representar datos multidimensionales de un único tipo
 
