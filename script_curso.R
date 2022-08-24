@@ -24,7 +24,7 @@ edad
 #Los valores booleanos TRUE o FALSE se pueden abreviar con las letras T o F
 
 if(3>4) 
-  {
+{
   print(T)
 } else {
   print(F)
@@ -212,4 +212,33 @@ mi_lista[[1]]
 mi_lista$numero.hermanos
 mi_lista$madre
 
+ls()
+# Borrando datos del entorno de trabajo
+rm(list=ls())
+ls()
 
+#directorio acutal:
+getwd()
+
+#definir directorio:
+#setwd("C:\")
+
+# Tabla: Estructura rectangular de organizar los datos, con renglones y columnas
+# Para leer una tabla se usa read.table(file, header=T, sep=";", col.names=c(nombre ,de, las, columnas),stringsAsFactros=F)
+
+# también existe la funcion read.csv() con los mismos argumentos de read.table()
+
+# Se pueden exportar tablas en un archivo de texto con wirte.table() write() write.csv()
+
+matriz1<-matrix(1:12,3)
+matriz1
+
+write.table(matriz1, file="matriz1.data", sep=",", row.names=F, col.names=F)
+
+matriz1txt<-read.table(file="matriz1.data", header=F, sep=",")
+
+matriz1txt
+
+write.csv(matriz1txt, file="matriz1.csv", row.names=F)
+matriz1csv<-read.csv(file="matriz1.csv")
+matriz1csv
