@@ -112,3 +112,23 @@ max(x)
 
 nueva_matriz<-matrix(1:6,nrow=3,ncol=2, byrow=T)
 nueva_matriz
+
+
+nueva_matriz[3, 2]
+
+# Lista: estructuras de datos unidimensionales
+# a diferencia del vector, sus elementos pueden ser de distinto tipo
+# su estructura es heterogenea
+
+mi_lista<-list(padre="Carlos", madre="Oriana", numero.hermanos=2, nomre.hijos=c("Carlos","María"))
+mi_lista
+
+names(mi_lista)
+str(mi_lista)
+
+mi_lista[]
+mi_lista[[1]]
+mi_lista$numero.hermanos
+mi_lista$madre
+
+
