@@ -242,3 +242,118 @@ matriz1txt
 write.csv(matriz1txt, file="matriz1.csv", row.names=F)
 matriz1csv<-read.csv(file="matriz1.csv")
 matriz1csv
+
+
+# Funciones graficas de alto nivel
+# generan graficos completos
+
+plot(sample(100))
+plot(sample(100), ylim=c(50, 90))
+plot(sample(100),
+     ylim=c(0, 30),
+     xlim=c(0,30), 
+     ylab="Esto es Y",
+     xlab="X por acá!",
+     main="Primer gráfico",
+     sub="adioos"
+     )
+
+plot(rnorm(500))
+
+set.seed(1)
+
+x<-rnorm(10)
+y<-x+rnorm(10)
+
+#histograma
+hist(x,y)
+
+#barras
+barplot(x,y)
+
+#diagrama de caja
+boxplot(x,y)
+
+#Funciones graficas de bajo nivel
+#añaden elementos a un grafico existente
+
+plot(x,y)
+lines(x,y, col="green")
+
+
+## ggplot2
+#librería para representar gráficos
+
+#cargando librerías
+library(ggplot2)
+library(tidyverse)
+
+datos<-matrix(sample(100),c(1,2))
+
+#cambiando una matriz a data frame
+ggplot(data = as.data.frame(datos))
+
+
+#dataframes: marco de datos u hoja de datos
+#ojbeto más habitual para guardar datos en R
+#Cada individuo o fecha corresponde a una fila y cada columna a una variable
+
+#filas: casos, individuos u observaciones
+#coumnas: atributos, rasgos o variables
+
+#todos los vectores deben tener el mismo largo
+
+#data.frame()
+
+edad = c(30, 33, 21, 25)
+tiempo = c(22.15, 23.19, 20.30, 21.50)
+sexo =c("M", "F", "F", "M")
+
+nuevos_datos<-data.frame(edad,tiempo,sexo)
+nuevos_datos
+
+nuevos_datos$tiempo
+nuevos_datos[,3]
+nuevos_datos[1:2,2]
+nuevos_datos[,"edad"]
+mean(nuevos_datos[["edad"]])
+
+
+# podemos traspasar el contenido del dataframe al entorno de R con esta función:
+# attach()
+# para acceder directamente a su contenido por el nombre
+# después de trabajar se usa detach()
+
+attach(nuevos_datos)
+table(edad)
+table(sexo)
+mean(edad[sexo=="M"])
+mean(edad[sexo=="F"])
+detach(nuevos_datos)
+
+#con a variable with podemos hacer cálculos dentro del df
+
+with(nuevos_datos,{
+  calculo = edad*tiempo
+  calculo
+})
+
+#filtrando datos
+
+hombres=subset(nuevos_datos, sexo=="M")
+hombres
+
+
+#agregando filas
+nuevas_filas<-data.frame(edad=c(22,60), tiempo=c(12.47, 10.30), sexo=c("F", "F"))
+nuevos_datos<-rbind(nuevos_datos, nuevas_filas)
+nuevos_datos
+
+#agregando columna
+nuevos_datos<-cbind(nuevos_datos, codigo=nuevos_datos$edad*nuevos_datos$tiempo)
+nuevos_datos
+
+
+#eliminar columna
+nuevos_datos<-nuevos_datos[,-c(4)]
+nuevos_datos
